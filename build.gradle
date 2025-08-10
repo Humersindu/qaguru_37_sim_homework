@@ -12,7 +12,8 @@ dependencies {
 
     testImplementation (
             'org.junit.platform:junit-platform-launcher:1.9.2',
-            "com.codeborne:selenide:7.9.4"
+            "com.codeborne:selenide:7.9.4",
+            "org.slf4j:slf4j-simple:2.0.17"
     )
 }
 
