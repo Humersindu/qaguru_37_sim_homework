@@ -19,7 +19,7 @@ public class PracticeFormFillingTest {
     }
 
     @Test
-    void fillFieldAndCheckOutput () {
+    void fillFieldsAndCheckOutput () {
         //Открытие тестируемой страницы
         open("/automation-practice-form");
         executeJavaScript("$('footer').remove();");
