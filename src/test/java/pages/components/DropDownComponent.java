@@ -1,8 +1,7 @@
-package components;
+package pages.components;
 
 import java.util.List;
 
-import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class DropDownComponent {
@@ -18,12 +17,12 @@ public class DropDownComponent {
             "#react-select-4-option-1");
 
     public void selectState (int stateNumber) {
-        $(byXpath("//*[contains(text(), 'Select State')]")).click();
+        $("#state").click();
         $(districtNumbers.get(stateNumber)).click();
     }
 
-    public void selectCity (int cityNymber) {
-        $(byXpath("//*[contains(text(), 'Select City')]")).click();
-        $(cityNumbers.get(cityNymber)).click();
+    public void selectCity (int cityNumber) {
+        $("#city").click();
+        $(cityNumbers.get(cityNumber)).click();
     }
 }

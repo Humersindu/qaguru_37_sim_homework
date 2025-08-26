@@ -1,8 +1,9 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
-import components.CalendarComponent;
-import components.DropDownComponent;
+import pages.components.CalendarComponent;
+import pages.components.DropDownComponent;
+import pages.components.ResultTableComponent;
 
 import java.util.List;
 
@@ -24,11 +25,11 @@ public class PracticeFormPage {
             modalContent = $("[class=modal-content]"),
             modalHeader = $("[class=modal-header]"),
             calendarInput = $("#dateOfBirthInput"),
-            userForm = $("#userForm"),
-            tableResponsive = $(".table-responsive");
+            userForm = $("#userForm");
 
     CalendarComponent calendar = new CalendarComponent();
     DropDownComponent dropDown = new DropDownComponent();
+    ResultTableComponent resultTable = new ResultTableComponent();
 
     private final List <String> hobbies = List.of (
             "Music",
@@ -139,9 +140,7 @@ public class PracticeFormPage {
         return this;
     }
     public PracticeFormPage checkResult (String key, String value) {
-        tableResponsive.$(byText(key))
-                .parent()
-                .shouldHave(text(value));
+        resultTable.checkResult(key, value);
 
         return this;
     }
