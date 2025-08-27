@@ -6,7 +6,7 @@ import utils.DataGenerator;
 
 import static utils.Constant.*;
 
-public class PracticeForPOAndJavaFakerTest extends BaseTest{
+public class PracticeFormPOAndJavaFakerTest extends BaseTest{
 
     PracticeFormPage practiceFormPage = new PracticeFormPage();
     DataGenerator dataGenerator = new DataGenerator();
