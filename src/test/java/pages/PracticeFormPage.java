@@ -10,6 +10,7 @@ import java.util.List;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
+import static utils.Constant.HOBBIES;
 
 public class PracticeFormPage {
     private static final SelenideElement firstName = $("#firstName"),
@@ -25,16 +26,13 @@ public class PracticeFormPage {
             modalContent = $("[class=modal-content]"),
             modalHeader = $("[class=modal-header]"),
             calendarInput = $("#dateOfBirthInput"),
-            userForm = $("#userForm");
+            userForm = $("#userForm"),
+            subjectButton = $("#react-select-2-option-0");
+
 
     CalendarComponent calendar = new CalendarComponent();
     DropDownComponent dropDown = new DropDownComponent();
     ResultTableComponent resultTable = new ResultTableComponent();
-
-    private final List <String> hobbies = List.of (
-            "Music",
-            "Reading",
-            "Sports");
 
     public PracticeFormPage openPage() {
         open("/automation-practice-form");
@@ -75,6 +73,16 @@ public class PracticeFormPage {
         return this;
     }
 
+    public PracticeFormPage setSubjects (List <String> subjects) {
+        subjectsInput.click();
+        for (String subject : subjects) {
+            subjectsInput.setValue(subject);
+            subjectButton.click();
+        }
+
+        return this;
+    }
+
     public PracticeFormPage setSubjects (String subjects) {
         subjectsInput.setValue(subjects);
 
@@ -101,7 +109,7 @@ public class PracticeFormPage {
     }
 
     public PracticeFormPage setHobbies () {
-        for (String hobby : hobbies) {
+        for (String hobby : HOBBIES) {
             hobbiesWrapper.$(byText(hobby)).click();
         }
 
