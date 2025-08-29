@@ -7,17 +7,21 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
-
     testImplementation (
-            'org.junit.platform:junit-platform-launcher:1.9.2',
+            'org.junit.jupiter:junit-jupiter:5.10.0',
             "com.codeborne:selenide:7.9.4",
             "org.slf4j:slf4j-simple:2.0.17",
             "com.github.javafaker:javafaker:1.0.2"
     )
 }
 
-test {
+tasks.withType(Test) {
     useJUnitPlatform()
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
 }

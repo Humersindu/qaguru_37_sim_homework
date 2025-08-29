@@ -30,6 +30,7 @@ public class PracticeFormPOAndJavaFakerTest extends BaseTest{
     @Test
     void allFieldsFillingPositiveTest () {
         practiceFormPage.openPage()
+                .deleteBanner()
                 //Заполнение форм
                 .setFirstName(firstName)
                 .setLastName(lastname)
@@ -63,6 +64,7 @@ public class PracticeFormPOAndJavaFakerTest extends BaseTest{
     @Test
     void requiredFieldsFillingPositiveTest () {
         practiceFormPage.openPage()
+                .deleteBanner()
                 //Заполнение форм
                 .setFirstName(firstName)
                 .setLastName(lastname)
